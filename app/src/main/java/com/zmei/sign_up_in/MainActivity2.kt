@@ -1,5 +1,6 @@
 package com.zmei.sign_up_in
 
+import Constance.constance
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,8 +14,16 @@ class MainActivity2 : AppCompatActivity() {
         bind = ActivityMain2Binding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(bind.root)
+        val proverka = intent.getStringExtra(constance.SIGN_STATE)
+        bind.btOK.text = proverka
+
+
     }
-    fun onClick(view: View){
+    fun onClickAva(view: View){
         bind.AvatarLoad.visibility = View.VISIBLE
+    }
+
+    fun onClickOk(view: View){
+
     }
 }
