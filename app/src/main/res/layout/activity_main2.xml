@@ -10,15 +10,14 @@
         android:id="@+id/AvatarLoad"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:visibility="visible"
+        android:src="@drawable/face"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"
-        app:srcCompat="@drawable/face"
-        tools:visibility="visible" />
+        app:layout_constraintVertical_bias="0.025" />
 
     <EditText
         android:id="@+id/Login"
@@ -104,7 +103,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:onClick="onClickAva"
         android:text="Avatar"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/AvatarLoad"
         app:layout_constraintStart_toStartOf="@+id/AvatarLoad"
         app:layout_constraintTop_toBottomOf="@+id/AvatarLoad" />

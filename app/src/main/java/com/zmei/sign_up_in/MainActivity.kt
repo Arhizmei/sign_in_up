@@ -28,4 +28,11 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    fun OnClickSignUp(view: View){
+        val intent = Intent(this, MainActivity2::class.java)
+        intent.putExtra(constance.SIGN_STATE, constance.SIGN_UP)
+        startActivityForResult(intent, constance.REQUEST_COD_SIGN_UP)
+
+    }
 }
