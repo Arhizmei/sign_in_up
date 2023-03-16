@@ -1,6 +1,7 @@
 package com.zmei.sign_up_in
 
 import Constance.constance
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -32,22 +33,22 @@ class MainActivity2 : AppCompatActivity() {
 
     fun onClickOk(view: View){
         if (sign_state == constance.SIGN_UP){
-            intent.putExtra(constance.LOGIN, bind.Login.text)
-            intent.putExtra(constance.PASSWORD, bind.Password.text)
-            intent.putExtra(constance.NAME, bind.Name.text)
-            intent.putExtra(constance.NAME2, bind.Name2.text)
-            intent.putExtra(constance.SERNAME, bind.Surname.text)
+            val intent = Intent()
+            intent.putExtra(constance.LOGIN, bind.Login.text.toString())
+            intent.putExtra(constance.PASSWORD, bind.Password.text.toString())
+            intent.putExtra(constance.NAME, bind.Name.text.toString())
+            intent.putExtra(constance.NAME2, bind.Name2.text.toString())
+            intent.putExtra(constance.SERNAME, bind.Surname.text.toString())
             if (bind.AvatarLoad.isVisible) intent.putExtra(constance.AVATARID, R.drawable.face)
             setResult(RESULT_OK, intent)
-            finish()
+            finish()}
             else if (sign_state == constance.SIGN_IN) {
-                intent.putExtra(constance.LOGIN, bind.Login.text)
-                intent.putExtra(constance.PASSWORD, bind.Password.text)}
-            setResult(RESULT_OK, intent)
-            finish()
-
+                intent.putExtra(constance.LOGIN, bind.Login.text.toString())
+                intent.putExtra(constance.PASSWORD, bind.Password.text.toString())
+                setResult(RESULT_OK, intent)
+                finish()
+            }
             }
         }
 
-    }
-}
+
