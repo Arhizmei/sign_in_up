@@ -27,20 +27,27 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if (requestCode == constance.REQUEST_COD_SIGN_UP){
+        login = data?.getStringExtra(constance.LOGIN)!!
+        password = data?.getStringExtra(constance.PASSWORD)!!
         name = data?.getStringExtra(constance.NAME)!!
         name2 = data?.getStringExtra(constance.NAME2)!!
         sername = data?.getStringExtra(constance.SERNAME)!!
-        bind.textView.text = "$name " + "$name2 " + "$sername"
+        bind.textView.text = "Приветствую " + "$name " + "$name2 " + "$sername"
         bind.Avatar.visibility = View.VISIBLE
         avatarId = data.getIntExtra(constance.AVATARID, 0)
-        bind.Avatar.setImageResource(avatarId)}
+        bind.Avatar.setImageResource(avatarId)
+            bind.btSignUp.visibility = View.INVISIBLE
+            bind.btSignIn.text ="Exit"}
         else if (requestCode == constance.REQUEST_COD_SIGN_IN){
-           login = data?.getStringExtra(constance.LOGIN)!!
-            password= data?.getStringExtra(constance.PASSWORD)!!
-            text = "$login" + "$password"
-            bind.textView.text = text}
+            val l = data?.getStringExtra(constance.LOGIN)
+            val p = data?.getStringExtra(constance.PASSWORD)
+            if (l == login && p == password){
+                bind.Avatar.visibility = View.VISIBLE
+                bind.Avatar.setImageResource(avatarId)
+                bind.btSignUp.visibility = View.GONE
+                bind.btSignIn.text = "Exit"
+            }else bind.textView.text = "Не верный логин и пароль"}
         }
 
 
