@@ -27,17 +27,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        bind.textView.text = data?.getStringExtra(constance.LOGIN)
-        //if (requestCode == constance.REQUEST_COD_SIGN_UP){
-        //name = data?.getStringExtra(constance.NAME)!!
-        //name2 = data?.getStringExtra(constance.NAME2)!!
-        //sername = data?.getStringExtra(constance.SERNAME)!!
-        //bind.textView.text = "$name + $name2 + $sername"}
-        //else if (requestCode == constance.REQUEST_COD_SIGN_IN){
-        //    login = data?.getStringExtra(constance.LOGIN)!!
-            //password= data?.getStringExtra(constance.PASSWORD)!!
-            //text = "$login + $password"
-            //bind.textView.text = text}
+
+        if (requestCode == constance.REQUEST_COD_SIGN_UP){
+        name = data?.getStringExtra(constance.NAME)!!
+        name2 = data?.getStringExtra(constance.NAME2)!!
+        sername = data?.getStringExtra(constance.SERNAME)!!
+        bind.textView.text = "$name " + "$name2 " + "$sername"
+        bind.Avatar.visibility = View.VISIBLE
+        avatarId = data.getIntExtra(constance.AVATARID, 0)
+        bind.Avatar.setImageResource(avatarId)}
+        else if (requestCode == constance.REQUEST_COD_SIGN_IN){
+           login = data?.getStringExtra(constance.LOGIN)!!
+            password= data?.getStringExtra(constance.PASSWORD)!!
+            text = "$login" + "$password"
+            bind.textView.text = text}
         }
 
 
